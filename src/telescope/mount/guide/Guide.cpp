@@ -36,6 +36,11 @@ void Guide::init() {
   settings.axis1RateSelect = GR_20X;
   settings.axis2RateSelect = GR_20X;
 
+  // pulse-guide rate is locked to 0.5X, value stored in NV isn't used
+  #if GUIDE_PULSE_RATE_LOCK == ON
+    settings.pulseRateSelect = GR_HALF;
+  #endif
+
   // start guide monitor task
   VF("MSG: Mount, start guide monitor task (rate "); V(FRACTIONAL_SEC_US/2); VF("us priority 3)... ");
   int taskHandle = tasks.add(0, 0, true, 3, guideWrapper, "MtGuide");

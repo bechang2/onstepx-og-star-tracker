@@ -775,6 +775,9 @@
 #ifndef GUIDE_SEPARATE_PULSE_RATE
 #define GUIDE_SEPARATE_PULSE_RATE     ON                          // normally always enabled
 #endif
+#ifndef GUIDE_PULSE_RATE_LOCK
+#define GUIDE_PULSE_RATE_LOCK         OFF                         // ON keeps the pulse-guide rate fixed at 0.5X
+#endif
 
 // tracking
 #ifndef TRACK_AUTOSTART

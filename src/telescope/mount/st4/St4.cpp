@@ -163,7 +163,7 @@
             if (st4Axis2Fwd.wasPressed() && !st4Axis2Rev.wasPressed()) { mount.tracking(!mount.isTracking()); mountStatus.soundClick(); }
             guide.settings.axis1RateSelect = (GuideRateSelect)r;
             guide.settings.axis2RateSelect = (GuideRateSelect)r;
-            if (GUIDE_SEPARATE_PULSE_RATE == ON && guide.settings.axis1RateSelect <= GR_1X) guide.settings.pulseRateSelect = guide.settings.axis1RateSelect;
+            if (GUIDE_SEPARATE_PULSE_RATE == ON && GUIDE_PULSE_RATE_LOCK != ON && guide.settings.axis1RateSelect <= GR_1X) guide.settings.pulseRateSelect = guide.settings.axis1RateSelect;
           }
           if (altModeB) {
             #if ST4_HAND_CONTROL_FOCUSER == ON
