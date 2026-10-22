@@ -1,8 +1,8 @@
 /* ---------------------------------------------------------------------------------------------------------------------------------
- * OG Star Tracker V2 PCB template for OnStepX 10.24c
+ * OG Star Tracker V1 controller template for OnStepX 10.24c
  *
  * This is stock OnStepX Config.h with only the settings this board needs changed. Every change is marked [OGST].
- * Read templates/og-star-tracker-v2/README.md first.
+ * Read templates/og-star-tracker-v1/README.md first.
  *
  * To use it: copy this file over the Config.h in the sketch folder (next to OnStepX.ino), then at minimum set
  * AXIS1_STEPS_PER_DEGREE / AXIS2_STEPS_PER_DEGREE for your gearing and AXISn_REVERSE for your motor wiring.
@@ -28,7 +28,7 @@
 
 // PINMAP ------------------------------------------------- see https://onstep.groups.io/g/main/wiki/Configuration_Controller#PINMAP
 #define PINMAP                    MaxESP3 //    OFF, Choose from: MiniPCB, MiniPCB2, MaxPCB2, MaxESP3, CNC3, STM32Blue,      <-Req'd
-                                          // [OGST] The OG Star Tracker V2 wiring lives in src/pinmaps/Pins.MaxESP3.h of THIS repo.
+                                          // [OGST] The OG Star Tracker V1 controller wiring is in src/pinmaps/Pins.MaxESP3.h of THIS repo.
                                           // [OGST] The stock OnStepX MaxESP3 pinmap does not match the board (motors won't move).
                                           //         MaxSTM3, FYSETC_S6_2, etc.  Other boards and more info. in ~/src/Constants.h
 

@@ -1,10 +1,11 @@
-# OnStepX for the OG Star Tracker V2 PCB
+# OnStepX for the OG Star Tracker V1 controller
 
 This is a modified copy of [OnStepX](https://github.com/hjd1964/OnStepX) 10.24c for the
-[OG Star Tracker V2](https://github.com/OG-star-tech/OG-star-tracker-) ESP32 + TMC2209 controller board.
+[OG Star Tracker](https://github.com/OG-star-tech/OG-star-tracker-) **V1 controller**, the open-source ESP32 + TMC2209 board.
 
+- Not for the closed-source OG Star Tracker **V2** controller (built-in ESP32 and a single driver).
 - **Setting up your own tracker or mount on this board?** Start with
-  **[templates/og-star-tracker-v2/README.md](templates/og-star-tracker-v2/README.md)**. It has a ready-to-edit
+  **[templates/og-star-tracker-v1/README.md](templates/og-star-tracker-v1/README.md)**. It has a ready-to-edit
   `Config.h` and fixes for dead motors, NINA tracking stuck on "Stopped", ESP32 brownouts during slews, motor
   stalls, and upload errors.
 - The `Config.h` in this folder is the author's working setup: a harmonic-drive GEM with 0.9° motors and

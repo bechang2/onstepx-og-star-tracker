@@ -1,12 +1,17 @@
-# OnStepX on the OG Star Tracker V2 PCB
+# OnStepX on the OG Star Tracker V1 controller
 
 A starting point for running [OnStepX](https://github.com/hjd1964/OnStepX) 10.24c on the
-[OG Star Tracker V2 controller PCB](https://github.com/OG-star-tech/OG-star-tracker-/tree/main/esp32_wireless_control/pcb)
+[OG Star Tracker V1 controller PCB](https://github.com/OG-star-tech/OG-star-tracker-/tree/main/esp32_wireless_control/pcb)
 (ESP32 DevKit + two TMC2209 drivers), for DIY trackers and mounts.
 
 This folder holds a **template `Config.h`**: it is stock OnStepX with only the settings this board needs changed.
 Each change is marked `[OGST]` in the file. The `Config.h` at the root of the repo is one working example: a
 harmonic-drive GEM with a 500:1 reduction on RA and 375:1 on Dec. Use it for reference, not as your own config.
+
+> **Which board?** This is for the **V1 controller**: the open-source DIY board, where an ESP32 DevKit and two
+> TMC2209 driver modules plug into sockets. Its KiCad files in the OG repo are named `OGST_V2` / `gerbers_v2`
+> (a PCB revision), but it is the V1 controller. It is **not** for the newer, closed-source OG Star Tracker V2
+> controller, which has the ESP32 and a single motor driver built in.
 
 Tested with OnStepX 10.24c, Arduino ESP32 core 2.0.17, BTT TMC2209 (V1.3-type) modules, 0.9° steppers, and NINA.
 
@@ -14,7 +19,7 @@ Tested with OnStepX 10.24c, Arduino ESP32 core 2.0.17, BTT TMC2209 (V1.3-type) m
 
 | What you see | Cause | Fix |
 |---|---|---|
-| Motors don't move at all with `PINMAP MaxESP3` | The stock MaxESP3 pinmap doesn't match this PCB | Use this repo; `src/pinmaps/Pins.MaxESP3.h` holds the OG Star Tracker V2 wiring |
+| Motors don't move at all with `PINMAP MaxESP3` | The stock MaxESP3 pinmap doesn't match this PCB | Use this repo; `src/pinmaps/Pins.MaxESP3.h` holds the OG Star Tracker V1 controller wiring |
 | Axes dead / "no motion controller" after setting `*_DRIVER_MICROSTEPS_GOTO 2` | TMC2209 standalone only supports 8/16/32/64 | Keep `*_DRIVER_MICROSTEPS_GOTO OFF` |
 | Gotos/syncs drift or land in the wrong place | MS1/MS2 are **shared** by both drivers, so goto microstep switching on one axis changes the other; or a motor is stalling (see below) | Same fixed microsteps on both axes, `_GOTO OFF`; find your safe slew speed |
 | NINA shows tracking "Stopped" and won't turn it on (especially after a slew) | With `LIMIT_STRICT OFF`, `:Te#` (tracking on) silently turns tracking **off** until a goto/sync completes | `LIMIT_STRICT ON` (set in the template) |
@@ -28,7 +33,7 @@ Tested with OnStepX 10.24c, Arduino ESP32 core 2.0.17, BTT TMC2209 (V1.3-type) m
    Standalone mode doesn't need any extra libraries.
 2. Download this repo and put the files in a folder named exactly **`OnStepX`**. Arduino requires the folder name
    to match `OnStepX.ino`.
-3. Copy `templates/og-star-tracker-v2/Config.h` over the `Config.h` next to `OnStepX.ino`.
+3. Copy `templates/og-star-tracker-v1/Config.h` over the `Config.h` next to `OnStepX.ino`.
 4. Edit at least the items in [Settings you must change](#settings-you-must-change).
 5. Open `OnStepX.ino`. Choose **Tools → Board → ESP32 Dev Module** and your COM port.
    Leave "Erase All Flash Before Sketch Upload" disabled except for a first install or a deliberate reset.
