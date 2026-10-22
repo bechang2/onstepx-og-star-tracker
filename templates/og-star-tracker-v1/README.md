@@ -31,8 +31,9 @@ Tested with OnStepX 10.24c, Arduino ESP32 core 2.0.17, BTT TMC2209 (V1.3-type) m
 
 1. Install the **Arduino IDE 2** and the **esp32 by Espressif** board package (2.0.17 tested).
    Standalone mode doesn't need any extra libraries.
-2. Download this repo and put the files in a folder named exactly **`OnStepX`**. Arduino requires the folder name
-   to match `OnStepX.ino`.
+2. Download **`OnStepX.zip`** from the [latest release](https://github.com/bechang2/onstepx-og-star-tracker/releases/latest) and unzip it. It contains a folder named
+   **`OnStepX`**, which Arduino requires (the folder name must match `OnStepX.ino`). If you download the repo some
+   other way, rename its folder to `OnStepX`.
 3. Copy `templates/og-star-tracker-v1/Config.h` over the `Config.h` next to `OnStepX.ino`.
 4. Edit at least the items in [Settings you must change](#settings-you-must-change).
 5. Open `OnStepX.ino`. Choose **Tools → Board → ESP32 Dev Module** and your COM port.
